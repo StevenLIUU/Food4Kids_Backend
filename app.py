@@ -16,11 +16,11 @@ class Food(db.Model):
     itemName = db.Column(db.String(80), nullable=False)
     packWeight = db.Column(db.Float, nullable=False)
     minPackWeight = db.Column(db.Float, nullable=False)
-    unit = db.Column(db.String(10), nullable=False)
+    unit = db.Column(db.String(10), nullable=False) # Unit of package weight
     price = db.Column(db.Float, nullable=False)
-    minPackPrice = db.Column(db.Float, nullable=False)
-    minPackProtein = db.Column(db.Float, nullable=True)
-    proteinUnit = db.Column(db.String(10), nullable=True)
+    minPackPrice = db.Column(db.Float, nullable=False)  # Price of the minimum package
+    minPackProtein = db.Column(db.Float, nullable=True) # Amount of protein in each minimum package
+    proteinUnit = db.Column(db.String(10), nullable=True)   # Unit of protein
     minPackCarbohydrate = db.Column(db.String(20), nullable=True)
     carbohydrateUnit = db.Column(db.String(10), nullable=True)
     minPackFiber = db.Column(db.String(20), nullable=True)
@@ -29,16 +29,17 @@ class Food(db.Model):
     fatUnit = db.Column(db.String(10), nullable=True)
     minPackSodium = db.Column(db.String(20), nullable=True)
     sodiumUnit = db.Column(db.String(10), nullable=True)
-    # allergic = db.Column(db.String(50), nullable=True)
-    vegetables = db.Column(db.Boolean, nullable=False)
-    liquid = db.Column(db.Boolean, nullable=False)
+    # allergic = db.Column(db.String(50), nullable=True)    # Should be a list of allergic sources, causing problem so commented out temporarily. Need to be fixed
+    vegetables = db.Column(db.Boolean, nullable=False)  # Whether it is vegetables
+    liquid = db.Column(db.Boolean, nullable=False)  # Whether it is liquid
     snacks = db.Column(db.Boolean, nullable=False)
     fruit = db.Column(db.Boolean, nullable=False)
     meat = db.Column(db.Boolean, nullable=False)
     grain = db.Column(db.Boolean, nullable=False)
-    source = db.Column(db.String(50), nullable=True)
-    brand = db.Column(db.String(50), nullable=True)
+    source = db.Column(db.String(50), nullable=True)    # Where to buy the product
+    brand = db.Column(db.String(50), nullable=True)     # The brand of the product
 
+    # Temporary defined for testing purpose, need to be modified
     def __repr__(self):
         text = ''
         for key, val in self.__dict__.items():
@@ -48,7 +49,8 @@ class Food(db.Model):
 
 
 
-
+# read in and convert the sample data into SQL database. Set drop to be True if 
+# want to clean the previous database
 def initdb(drop=False):
     """Initialize the database."""
     if drop: db.drop_all()
