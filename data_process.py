@@ -23,7 +23,7 @@ def extract_unit(content):
 
 
 def extract_content(input):
-    if pd.isna(input): return ('NA', 'NA')
+    if pd.isna(input): return ((np.nan, np.nan), (np.nan,np.nan))
     splits = input.strip().split('/')
     content = extract_unit(splits[0])
     per = extract_unit(splits[1])
@@ -31,7 +31,7 @@ def extract_content(input):
 
 
 def read_vitamin(input):
-    if pd.isna(input): return 'NA'
+    if pd.isna(input): return np.nan
     splits = input.split(';')
     types = {}
     for i in splits:
@@ -54,7 +54,7 @@ def read_food_type(input):
 
 def calc_min_pack_stat(min_pack_weight, nutri):
     (content, per) = extract_content(nutri)
-    if content == 'NA': return 'NA'
+    if pd.isna(content): return np.nan
     nutri_amount = min_pack_weight / per[0] * content[0]
     return nutri_amount
 
@@ -82,7 +82,7 @@ def data_process(df):
     df['Fruit'] = list(map(lambda x: 'Fruit' in read_food_type(x), df['Food type']))
     df['Meat'] = list(map(lambda x: 'Meat' in read_food_type(x), df['Food type']))
     df['Grain'] = list(map(lambda x: 'Cereals' in read_food_type(x) or 'Bread' in read_food_type(x) or 'Noodles' in read_food_type(x), df['Food type']))
-    new_df = df[['Item name', 'Package Weight', 'Minimum Package Weight', 'Unit', 'Price',
+    new_df = df[['Item number', 'Item name', 'Package Weight', 'Minimum Package Weight', 'Unit', 'Price', 'Minimum Package Price',
                  'Minimum Package Protein', 'Protein Unit', 'Minimum Package Carbohydrate', 'Carbohydrate Unit', 'Minimum Package Fiber',
                  'Fiber Unit', 'Minimum Package Fat', 'Fat Unit', 'Minimum Package Sodium', 'Sodium Unit',
                  'Allergic',
@@ -90,10 +90,6 @@ def data_process(df):
                  'Brand', 'Source']]
     return new_df
 
-# print(pd.read_csv('C:/Users/nliu/Desktop/work/Food4Kids/food_data.csv'))
 def read_csv_file(file_path):
     df = pd.read_csv(file_path)
     return data_process(df)
-
-df = read_csv_data('C:/Users/nliu/Desktop/work/Food4Kids/food_data.csv')
-print(df)
