@@ -1,0 +1,23 @@
+Item number,Item name,Package Weight,Minimum Package Weight,Source,Brand,Could be split?,Protein,Carbohydrate,Vitamin,Fiber,Fat,Sodium,Allergic,Price,Food type
+1,"Canned Stuffed Eggplant,400g",4800g,400g,Amazon,Galil,TRUE,2g/120g,23g/120g,A: 110mcg/120g; C: 1.2mg/120g,3g/120g,11g/120g,420mg/120g,Eggplant,$39.88 ,Vegetables
+2,"Alwadi Fava Beans, canned,398ml",4800g,400g,Amazon,Al Wadi,TRUE,8g/130g,17g/130g,C: 4.8mg/130g,7.5g/130g,1g/130g,500mg/130g,Favism,$38.49 ,"Vegetables, Beans"
+3,"Alwadi Fava Beans, canned,398ml",2388g,398g,Amazon,Cortas,TRUE,11g/125g,16g/125g,NA,5g/125g,1g/125g,375mg/125g,Favism,$11.95 ,"Vegetables, Beans"
+4,"Alwadi Fava Beans, canned,398ml",1800g,450g,Amazon,California Garden,TRUE,9g/150g,18g/150g,C: 6.6mg/150g,8g/150g,8g/150g,436mg/150g,Favism,$17.49 ,"Vegetables, Beans"
+5,Saidoon White PITA (5pk),300g,300g,IQBAL'S,Saidoon Bakery,FALSE,5g/67g,34g/67g,NA,2g/67g,NA,135mg/67g,Wheat,$0.99 ,Bread
+6,Campbells Ready Serve Italian Wedding Soup,1620ml,540ml,Walmart,Campbell's,TRUE,7g/250ml,15g/250ml,NA,1g/250g,3g/250ml,780mg/250ml,Meat,$3 ,"Liquid, Soup"
+7,Maple Leaf canned Turkey,468g,156g,Walmart,Maple Leaf,TRUE,9g/52g,NA,A: 20mcg/52g; C: 1.2mg/52g,NA,3.5g/52g,240mg/52g,Meat,$7 ,Meat
+8,"Ozery Breakfast Round, 2 pieces",450g,75g,Ozery,Ozery,TRUE,6g/75g,40g/75g,C: 6mg/75g,2g/75g,1.5g/75g,220mg/75g,Wheat,$4.79 ,Bread
+9,"Muffin, various",340g,57g,Walmart,Great Value,TRUE,5g/57g,25g/57g,NA,4g/57g,1.5g/57g,115mg/57g,Wheat,$1.47 ,Bread
+10,"Muffin, various",1710g,114g,Amazon,Otis Spunkmeyer,TRUE,3g/57g,28g/57g,NA,1g/57g,11g/57g,190mg/57g,Wheat,$15.20 ,Bread
+11,Kirkland Trail Mix - single pack,1596g,57g,Costco,Kirkland,TRUE,9g/57g,26g/57g,NA,2g/57g,18g/57g,100mg/57g,"Peanuts, Almonds, Cashews",$21.99 ,"Candy, Snacks"
+12,"Applesauce, various, 113g",8136g,113g,SyscoHome,Applesnax,TRUE,NA,12g/113g,C: 24mg/113g,2g/113g,NA,20mg/113g,NA,$24.99 ,"Snacks, Fruit"
+13,"Goldfish - snack pack, plain",1290g,43g,Amazon,Pepperidge Farm,TRUE,5g/43g,28g/43g,NA,1g/43g,7g/43g,360mg/43g,"Wheat,Milk",$21.10 ,Snacks
+14,"Dare Cookies, two, various",170g,28g,Walmart,Dare,TRUE,1g/28g,19g/28g,NA,1g/28g,7g/28g,90mg/28g,"Wheat,Soya,Milk",$2.50 ,"Snacks, Cookies"
+15,"Quakers instant oatmeal two singles - plain, maple, apple",1392g,29g,Amazon,Quaker,TRUE,3g/29g,21g/29g,NA,2g/29g,1.5g/29g,130mg/29g,Wheat,$23.94 ,Cereals
+16,"Cereal - Honey Nut Cheerios, one cup",1300g,29g,Amazon,Cheerios,TRUE,3g/29g,23g/29g,NA,2g/29g,1.5g/29g,160mg/29g,"Almond, Oat",$8.27 ,Cereals
+17,Juice Box - apple250ml,1600ml,200ml,Walmart,Great Value,TRUE,NA,NA,NA,NA,NA,3mg/200ml,NA,$1.77 ,"Liquid,Juice"
+18,Milk To Go - single serve,3200ml,200ml,Costco,Natrel,TRUE,6g/200ml,21g/200ml,A:100mcg/200ml,NA,2g/200ml,170mg/200ml,Milk,$10.69 ,"Liquid, Milk"
+19,Apple,1000g,200g,Loblaws,Fuji,TRUE,0.26g/100g,13.81g/100g,A:3mcg/100g; C:4.6mg/100g,2.4g/100g,0.028g/100g,1mg/100g,NA,$4.39 ,Fruit
+20,Peach,1000g,150g,Loblaws,NA,TRUE,1g/100g,10g/100g,C:6mg/100g,NA,0.3g/100g,NA,Peach,$7.99 ,Fruit
+21,Pepper,240g,240g,Walmart,NA,FALSE,0.86g/100g,4.64g/100g,A:18mcg/100g; C:80.4mg/100g,1.7g/100g,0.17g/100g,3mg/100g,NA,$1.30 ,"Fruit, Vegetables"
+22,Mini Carrots - one cup,340g,340g,Loblaws,Famer's market,FALSE,0.64g/100g,8.24g/100g,A:690mcg/100g; C:8.4mg/100g,1.8g/100g,0.13g/100g,78mg/100g,NA,$2.29 ,Fruit
