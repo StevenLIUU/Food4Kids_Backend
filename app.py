@@ -1,14 +1,96 @@
 from flask import Flask, render_template, redirect, url_for, request, logging, flash, session, jsonify
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from datetime import datetime
+from flask_sqlalchemy import SQLAlchemy
+import click
+import os
+import data_process
 
 app = Flask(__name__)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.root_path, 'data.db')
+db = SQLAlchemy(app)
+
+class Food(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    itemName = db.Column(db.String(80), nullable=False)
+    packWeight = db.Column(db.Float, nullable=False)
+    minPackWeight = db.Column(db.Float, nullable=False)
+    unit = db.Column(db.String(10), nullable=False)
+    price = db.Column(db.Float, nullable=False)
+    minPackPrice = db.Column(db.Float, nullable=False)
+    minPackProtein = db.Column(db.Float, nullable=True)
+    proteinUnit = db.Column(db.String(10), nullable=True)
+    minPackCarbohydrate = db.Column(db.String(20), nullable=True)
+    carbohydrateUnit = db.Column(db.String(10), nullable=True)
+    minPackFiber = db.Column(db.String(20), nullable=True)
+    fiberUnit = db.Column(db.String(10), nullable=True)
+    minPackFat = db.Column(db.String(20), nullable=True)
+    fatUnit = db.Column(db.String(10), nullable=True)
+    minPackSodium = db.Column(db.String(20), nullable=True)
+    sodiumUnit = db.Column(db.String(10), nullable=True)
+    # allergic = db.Column(db.String(50), nullable=True)
+    vegetables = db.Column(db.Boolean, nullable=False)
+    liquid = db.Column(db.Boolean, nullable=False)
+    snacks = db.Column(db.Boolean, nullable=False)
+    fruit = db.Column(db.Boolean, nullable=False)
+    meat = db.Column(db.Boolean, nullable=False)
+    grain = db.Column(db.Boolean, nullable=False)
+    source = db.Column(db.String(50), nullable=True)
+    brand = db.Column(db.String(50), nullable=True)
+
+    def __repr__(self):
+        text = ''
+        for key, val in self.__dict__.items():
+            text += f'{key}:     {val}'
+            text += '<br />'
+        return text
+
+
+
+
+def initdb(drop=False):
+    """Initialize the database."""
+    if drop: db.drop_all()
+    db.create_all()
+    df = data_process.read_csv_file('food_data.csv')
+    for ind, row in df.iterrows():
+        food = Food(id = row['Item number'],
+                    itemName = row['Item name'],
+                    packWeight = row['Package Weight'],
+                    minPackWeight = row['Minimum Package Weight'],
+                    unit = row['Unit'],
+                    price = row['Price'],
+                    minPackPrice = row['Minimum Package Price'],
+                    proteinUnit = row['Protein Unit'],
+                    minPackProtein = row['Minimum Package Protein'],
+                    carbohydrateUnit = row['Carbohydrate Unit'],
+                    minPackCarbohydrate = row['Minimum Package Carbohydrate'],
+                    fiberUnit = row['Fiber Unit'],
+                    minPackFiber = row['Minimum Package Fiber'],
+                    fatUnit = row['Fat Unit'],
+                    minPackFat = row['Minimum Package Fat'],
+                    sodiumUnit = row['Sodium Unit'],
+                    minPackSodium = row['Minimum Package Sodium'],
+                    # allergic = row['Allergic'],
+                    vegetables = row['Liquid'],
+                    liquid = row['Vegetables'],
+                    snacks = row['Snacks'],
+                    fruit = row['Fruit'],
+                    meat = row['Meat'],
+                    grain = row['Grain'],
+                    brand = row['Brand'],
+                    source = row['Source']
+                    )
+        db.session.add(food)
+    db.session.commit()
 
 
 @app.route("/", methods=['GET', 'POST'])
 def main():
     session.clear()
     return render_template('index.html')
+
 
 @app.after_request
 def add_header(r):
@@ -33,22 +115,24 @@ def AddItem():
     """
     if request.method == 'POST':
         food_item = request.args.get('itemName')
-        
+
         # Retrieve food item here. IDK how to work with excel/csv in python nor do I currently have our storage format
-        food_obj = 1 
+        food_obj = 1
         # Expecting an object at the end here
         return jsonify(food_obj)
-    
+
+
 @app.route("/getall", methods=['get'])
 def AddItem():
     if request.method == 'GET':
-        # TODO
+    # TODO
     return None
+
 
 @app.route("/findfoodcombination", methods=['POST'])
 def FindRandomFoodCombination():
     if request.method == 'POST':
-        # TODO
+    # TODO
     return None
 
 
